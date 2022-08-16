@@ -1,0 +1,25 @@
+{
+  "createStudent":{
+    "id": 1396,
+    "name": "vijaya",
+    "age": 20,
+    "email": "vijaya@gmail.com"
+  },
+  "updatingAStudent": {
+    "id": 1396,
+    "name": "shanthi",
+    "age": 20,
+    "email": "vijaya@gmail.com"
+  },
+  "postWithOutName": {
+    "id": 1,
+    "age": 24,
+    "email": "rani@gmail.com"
+  },
+  "invalidAge": {
+    "id": 2567,
+    "name": "rani",
+    "age":"abcd",
+    "email": "rani@gmail.com"
+  }
+}
