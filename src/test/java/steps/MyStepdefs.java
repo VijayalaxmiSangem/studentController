@@ -67,6 +67,16 @@ public class MyStepdefs {
 
 
     }
+    @Then("Getting a single student")
+    public void gettingASingleStudent() throws JsonProcessingException {
+        response = given()
+                .body(student)
+                .when().get(Endpoints.studentEndpoint+"/"+respStudent.getId())
+                .then().statusCode(200).extract().response();
+        respStudent = objectMapper.readValue(response.asString(), Student.class);
+        Assert.assertEquals(student.getId(), respStudent.getId());
+
+    }
 
     @And("Updating the student details")
     public void updatingAStudent() {
@@ -96,6 +106,7 @@ public class MyStepdefs {
                 .body(student)
                 .when().delete(Endpoints.studentEndpoint + "/" + respStudent.getId())
                 .then().statusCode(200).extract().response();
+        Assert.assertEquals(response.getBody().asString(),"id"+respStudent.getId()+"is deleted successfully");
 
 
     }
@@ -199,4 +210,5 @@ public class MyStepdefs {
                 .then().statusCode(405).extract().response();
 
     }
+
 }
